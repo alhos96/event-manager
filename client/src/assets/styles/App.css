@@ -1,0 +1,87 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eaeafb;
+  position: relative;
+}
+
+/* @media screen and (min-width: 425px) {
+  body {
+    font-size: 13px;
+  }
+  .song-card {
+    height: 145px;
+    width: 145px;
+    margin-bottom: 5px;
+  }
+  .navbar-logo {
+    width: 200px;
+  }
+  .account-circle {
+    font-size: 30px !important;
+  }
+  #home-page-quote {
+    font-size: 27px !important;
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (min-width: 765px) {
+  .Songs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .song-card {
+    height: 160px;
+    width: 160px;
+    margin-bottom: 5px;
+  }
+  .navbar-logo {
+    width: 220px;
+  }
+  .Navbar {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .account-circle {
+    font-size: 35px !important;
+  }
+  .song-title {
+    font-size: 14px !important;
+  }
+  #home-page-quote {
+    font-size: 30px !important;
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (min-width: 1022px) {
+  body {
+    font-size: 15px !important;
+  }
+  .Songs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .song-card {
+    height: 170px;
+    width: 170px;
+    margin-bottom: 8px;
+  }
+  .navbar-logo {
+    width: 225px;
+  }
+  .Navbar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  .account-circle {
+    font-size: 40px !important;
+  }
+  .song-title {
+    font-size: 15px !important;
+  }
+  #home-page-quote {
+    font-size: 35px !important;
+    margin-bottom: 50px;
+  }
+}
+ */

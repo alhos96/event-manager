@@ -1,0 +1,23 @@
+/* small-title defined in dashboard css*/
+
+.requests-wrapp {
+  padding-top: 25px;
+}
+
+.request {
+  background-color: rgba(210, 210, 214, 0.5);
+  border-radius: 3px;
+  padding: 10px 5px;
+  margin-bottom: 10px;
+}
+
+.event-details {
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 760px) {
+  .event-details {
+    display: flex;
+    justify-content: space-around;
+  }
+}
