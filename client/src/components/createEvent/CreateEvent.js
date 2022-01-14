@@ -54,9 +54,6 @@ function CreateEvent({ socket, setUrl }) {
         }, 2000);
       });
   }
-  const dateChange = (newValue) => {
-    setDate(newValue);
-  };
 
   //side effects
   useEffect(() => {
@@ -124,10 +121,12 @@ function CreateEvent({ socket, setUrl }) {
               required
             />
             <br></br>
+
             <NumberFormat
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
+              placeholder="Price*"
               className="price-field"
               name="price"
               label="Event Price"
