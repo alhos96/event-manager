@@ -45,7 +45,7 @@ function Registrations({ notification, setUrl }) {
                       <span className="small-title">Event Date:</span> {date}
                     </Typography>
                     <Typography gutterBottom variant="body2" color="text.secondary">
-                      <span className="small-title">Event Price: </span> {event.price.$numberDecimal}KM
+                      <span className="small-title">Event Price: </span> {event.price.toFixed(2)}KM
                     </Typography>
                     <Typography gutterBottom variant="body2" color="text.secondary">
                       <span className="small-title">User Email:</span> {request.userWhoRegistered}
