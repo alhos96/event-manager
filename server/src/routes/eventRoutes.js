@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const fileUpload = require("../midleware/multer");
+const fileUpload = require("../middleware/multer");
 
 const {
   createEvent,
@@ -9,7 +9,7 @@ const {
   registrationAnswer,
   getUsersEvents,
   deleteEvent,
-} = require("../controlers/eventControlers");
+} = require("../controllers/eventControllers");
 
 router.post("/create-event", fileUpload.single("img"), createEvent);
 router.get("/get-events", getEvents);

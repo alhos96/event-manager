@@ -6,7 +6,7 @@ const server = require("socket.io");
 
 const app = express();
 const httpServer = createServer(app);
-const auth = require("./midleware/auth");
+const auth = require("./middleware/auth");
 
 //socket
 const Server = server.Server;
