@@ -4,6 +4,7 @@ import { Card, CardContent, CardMedia, Typography, Button, CardActionArea, CardA
 import moment from "moment";
 import { filters, getSomething, methods, postSomething } from "../../helpers";
 import Loader from "../Loader";
+import axios from "axios";
 import Notification from "../notification/Notification";
 
 function Dashboard({ socket, notification, setUrl }) {
@@ -117,7 +118,16 @@ function Dashboard({ socket, notification, setUrl }) {
                             id={event._id}
                             onClick={(e) => {
                               e.target.setAttribute("disabled", true);
-                              postSomething(patch, "/events/registration-request", { eventId: e.target.id, email }, token, setEvents);
+
+                              postSomething(
+                                patch,
+                                "/events/registration-request",
+                                { eventId: e.target.id, email, title: event.title },
+                                token,
+                                setEvents,
+                                setMessage,
+                                setDisplayNotification
+                              );
 
                               socket?.emit("registeredForEvent", {
                                 userWhoRegistered: { user, email },
@@ -145,9 +155,26 @@ function Dashboard({ socket, notification, setUrl }) {
                             <Button
                               id={event._id}
                               onClick={(e) => {
-                                postSomething(remove, "/events/delete-event", { eventId: e.target.id }, token, setEvents);
-                                setMessage("Event deleted successfuly!");
-                                setDisplayNotification(true);
+                                axios
+                                  .delete(
+                                    `http://localhost:5000/events/delete-event/${e.target.id}`,
+
+                                    {
+                                      headers: {
+                                        authorization: `Bearer ${token}`,
+                                        eventId: e.target.id,
+                                      },
+                                    }
+                                  )
+                                  .then((res) => {
+                                    setEvents(res.data.data);
+                                    setMessage("Event deleted successfuly!");
+                                    setDisplayNotification(true);
+                                  })
+                                  .catch((err) => {
+                                    setMessage("An error occured when deleting the event!");
+                                    setDisplayNotification(true);
+                                  });
                               }}
                               variant="contained"
                               color="secondary"

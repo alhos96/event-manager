@@ -18,6 +18,6 @@ router.get("/get-users-events", getUsersEvents);
 router.patch("/registration-request", registrationRequest);
 router.put("/registration-answer", registrationAnswer);
 
-router.delete("/delete-event", deleteEvent);
+router.delete("/delete-event/:id", deleteEvent);
 
 module.exports = router;

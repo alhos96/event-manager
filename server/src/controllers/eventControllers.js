@@ -75,9 +75,14 @@ exports.getUsersEvents = async (req, res, next) => {
 };
 
 exports.deleteEvent = async (req, res, next) => {
-  const { eventId } = req.body;
+  const { id } = req.params;
 
-  await Event.findByIdAndDelete(eventId);
+  try {
+    await Event.findByIdAndDelete(id);
+  } catch (error) {
+    const err = new Error("Failed to delete");
+    return next(err);
+  }
 
   let events = await Event.find();
 

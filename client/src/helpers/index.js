@@ -19,15 +19,30 @@ export const getSomething = (method, url, token, setState) => {
   });
 };
 
-export const postSomething = (method, url, data, token, setState) => {
+export const postSomething = (method, url, data, token, setState, setMessage, setDisplayNotification) => {
   axios({
     method,
     data,
     headers: { Authorization: `Bearer ${token}` },
     url: `http://localhost:5000${url}`,
-  }).then((response) => {
-    setState(response.data.data);
-  });
+  })
+    .then((response) => {
+      setState(response.data.data);
+      if (setMessage) {
+        setMessage(`Registration for ${data.title} event was successfull!`);
+      }
+      if (setDisplayNotification) {
+        setDisplayNotification(true);
+      }
+    })
+    .catch((err) => {
+      if (setMessage) {
+        setMessage(`Registration for ${data.title} event was unsuccessfull!`);
+      }
+      if (setDisplayNotification) {
+        setDisplayNotification(true);
+      }
+    });
 };
 
 export const setCurrentlyActiveLink = (linkButtons, url) => {
