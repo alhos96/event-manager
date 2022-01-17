@@ -59,6 +59,11 @@ function CreateEvent({ socket, setUrl }) {
   useEffect(() => {
     setFade(true);
     setUrl(window.location.pathname);
+
+    return () => {
+      setMessage("");
+      setDisplayNotification(false);
+    };
   }, []);
 
   return (

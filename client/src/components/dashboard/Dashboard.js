@@ -37,13 +37,15 @@ function Dashboard({ socket, notification, setUrl }) {
     socket?.on("recieveEvent", (data) => {
       setEventsCreated((prev) => [...prev, data]);
     });
+    return () => {
+      setEventsCreated([]);
+    };
   }, [socket]);
 
   useEffect(() => {
     setUrl(window.location.pathname);
   }, []);
 
-  console.log(`object`);
   return (
     <Box className="Dashboard">
       <Notification

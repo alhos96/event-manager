@@ -20,9 +20,12 @@ function Registrations({ notification, setUrl }) {
   }, [notification, myEvents]);
 
   useEffect(() => {
-    getSomething(get, "/events/get-users-events", token, setMyEvents);
     setFade(true);
+    getSomething(get, "/events/get-users-events", token, setMyEvents);
     setUrl(window.location.pathname);
+    return () => {
+      setMyEvents([]);
+    };
     // eslint-disable-next-line
   }, []);
 
