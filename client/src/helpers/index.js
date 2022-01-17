@@ -29,7 +29,7 @@ export const postSomething = (method, url, data, token, setState, setMessage, se
     .then((response) => {
       setState(response.data.data);
       if (setMessage) {
-        setMessage(`Registration for ${data.title} event was successfull!`);
+        setMessage(`The request for the event ${data.title} was successful!`);
       }
       if (setDisplayNotification) {
         setDisplayNotification(true);
@@ -37,7 +37,7 @@ export const postSomething = (method, url, data, token, setState, setMessage, se
     })
     .catch((err) => {
       if (setMessage) {
-        setMessage(`Registration for ${data.title} event was unsuccessfull!`);
+        setMessage(`The request for the event ${data.title} was not successful!`);
       }
       if (setDisplayNotification) {
         setDisplayNotification(true);

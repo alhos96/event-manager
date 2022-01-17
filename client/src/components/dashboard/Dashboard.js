@@ -43,6 +43,7 @@ function Dashboard({ socket, notification, setUrl }) {
     setUrl(window.location.pathname);
   }, []);
 
+  console.log(`object`);
   return (
     <Box className="Dashboard">
       <Notification
@@ -95,7 +96,13 @@ function Dashboard({ socket, notification, setUrl }) {
                   <div className="card-wrapp">
                     <Card className="event-card">
                       <CardActionArea>
-                        <CardMedia component="img" height="160" image={`http://localhost:5000/${event.image}`} alt="green iguana" />
+                        <CardMedia
+                          component="img"
+                          height="160"
+                          image={`http://localhost:5000/${event.image}`}
+                          onError={(e) => (e.target.src = "http://localhost:5000/noImage.png")}
+                          alt="green iguana"
+                        />
                         <CardContent>
                           <Typography className="big-title" gutterBottom variant="h5" component="div">
                             {event.title}
@@ -172,7 +179,7 @@ function Dashboard({ socket, notification, setUrl }) {
                                     setDisplayNotification(true);
                                   })
                                   .catch((err) => {
-                                    setMessage("An error occured when deleting the event!");
+                                    setMessage("An error occurred when deleting the event!");
                                     setDisplayNotification(true);
                                   });
                               }}
